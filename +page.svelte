@@ -1,7 +1,7 @@
 <script>
     import Card from './Card.svelte';
     import ProjectDetails from './ProjectDetails.svelte';
-    
+
     let projects = [
         {
             id: 1,
@@ -18,30 +18,30 @@
             details: 'Detailed description and other info about the project.'
         },
         {
-            id: 2,
+            id: 3,
             imageUrl: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-            title: 'Second Project Title',
+            title: 'Third Project Title',
             description: 'Description for the second project goes here.',
             details: 'Detailed description and other info about the project.'
         },
         {
-            id: 2,
+            id: 4,
             imageUrl: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-            title: 'Second Project Title',
+            title: 'Fourth Project Title',
             description: 'Description for the second project goes here.',
             details: 'Detailed description and other info about the project.'
         },
         {
-            id: 2,
+            id: 5,
             imageUrl: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-            title: 'Second Project Title',
+            title: 'Fifth Project Title',
             description: 'Description for the second project goes here.',
             details: 'Detailed description and other info about the project.'
         },
         {
-            id: 2,
+            id: 6,
             imageUrl: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-            title: 'Second Project Title',
+            title: 'Sixth Project Title',
             description: 'Description for the second project goes here.',
             details: 'Detailed description and other info about the project.'
         },
@@ -52,6 +52,10 @@
 
     function selectProject(project) {
         selectedProject = project;
+    }
+
+    function deselectProject() {
+        selectedProject = null;
     }
 
     function scrollLeft() {
@@ -65,7 +69,7 @@
 
 <div class="relative flex items-center justify-center py-20 pl-16 pr-20">
     {#if selectedProject}
-        <ProjectDetails {selectedProject} on:deselect={() => selectedProject = null} />
+        <ProjectDetails {selectedProject} on:deselect={deselectProject} />
     {:else}
         <button on:click={scrollLeft} class="absolute left-0 z-10 p-2 ml-4 text-white transform -translate-y-1/2 bg-gray-700 rounded-full top-1/2">
             &lt;
